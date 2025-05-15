@@ -3424,12 +3424,12 @@ input, select, textarea {
 		#intro p {
 			font-size: 1.25rem;
 			font-style: italic;
-			margin-top: -0.15rem; /* reduce space above the arrow. Was 0.25 */
+			margin-top: -0.04rem; /* reduce space below the text. Was 0.25 */
 			text-align: center;
 		}
 
 		#intro + #header {
-			margin-top: -20rem;
+			margin-top: -7rem; /* was 20 */
 		}
 
 			#intro + #header .logo {
