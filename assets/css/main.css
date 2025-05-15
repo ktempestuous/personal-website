@@ -3548,7 +3548,7 @@ input, select, textarea {
 		-ms-user-select: none;
 		user-select: none;
 		height: 20rem;
-		padding-bottom: 8rem;
+		padding-bottom: 3rem; /* originally 8 */
 		position: relative;
 		text-align: center;
 		z-index: 2;
