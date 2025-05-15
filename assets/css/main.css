@@ -72,6 +72,37 @@ input, select, textarea {
 	appearance: none;
 }
 
+/* bubbles*/
+
+.bubbles-section {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	margin: 2rem auto;
+	padding: 1rem;
+	flex-wrap: wrap;
+}
+
+.bubble {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.1); /* 10% visible white */
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 600;
+	text-align: center;
+	transition: background 0.3s, transform 0.3s;
+}
+
+.bubble:hover {
+	background: rgba(255, 255, 255, 0.3);
+	transform: scale(1.05);
+}
+
 /* Basic */
 
 	@-ms-viewport {
