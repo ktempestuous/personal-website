@@ -78,7 +78,7 @@ input, select, textarea {
 	display: flex;
 	justify-content: center;
 	gap: 2rem;
-	margin: 2rem auto;
+	margin: 0.7rem auto; /* reduces top and bottom margins */
 	padding: 1rem;
 	flex-wrap: wrap;
 }
@@ -3424,7 +3424,7 @@ input, select, textarea {
 		#intro p {
 			font-size: 1.25rem;
 			font-style: italic;
-			margin-top: -0.25rem;
+			margin-top: -0.15rem; /* reduce space above the arrow. Was 0.25 */
 			text-align: center;
 		}
 
