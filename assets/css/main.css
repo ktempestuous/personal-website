@@ -330,7 +330,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #18bfef !important;
+			color: #006400 !important; /* dark green */
 		}
 
 	strong, b {
