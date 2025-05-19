@@ -123,6 +123,24 @@
 
 											</ul>
 
+									<hr />
+
+									<header> 
+										<h2>Results</h2>
+									</header>
+
+									<figure style="float: left; margin: 0 1em 1em 0; max-width: 50%;">
+  										<img src="images/Fig8.pdf" alt="..." style="width: 100%;" />
+  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 3: Asymptotic convergence of variance sampling error for (a) wind, (b) height and (c) rain model variables. </figcaption>
+									</figure>
+
+									<p> An asymptotic convergence in the limit of large ensemble size (n) was seen in all variables tested (mean, variance, standard deviation, skew, kurtosis and various quantiles). 
+									Seen here in Figure 3 where we see the sampling error of the variance decrease proportional to n<sup>-1/2</sup> after an ensemble size between 50-100 is reached. <br>
+									This behaviour is expected from the <a href="#CLT">Central Limit Theorem</a>, which further predicts that the magnitude of the uncertainty depends on the distribution shape, with a large uncertainty for statistics 
+									that depend on rare events. This prediction was also confirmed, with the additional observation that such statistics also required larger ensemble sizes before entering the asymptotic regime. 
+									</p>
+							
+
 
 								        <h3>Definition</h3>
 									<dl>
@@ -134,9 +152,9 @@
 										<dd>
 											<p>A 95% confidence interval using the percentile method is constructed by taking many resampled versions of a dataset (e.g. via bootstrapping), calculating the statistic of interest for each, and then selecting the values at the 2.5th and 97.5th percentiles of the resulting distribution. These percentiles form the lower and upper bounds of the interval, meaning there's a 95% chance the true value lies within them, based on the resampled data.</p>
 										</dd>
-										<dt>Item 3</dt>
+										<dt id="CLT">Central Limit Theorem</dt>
 										<dd>
-											<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+											<p>States that regardless of the original distribution of a population, the distribution of the sample mean will approach a normal distribution as the sample size becomes large, provided the samples are independent and identically distributed.</p>
 										</dd>
 									</dl>
 
