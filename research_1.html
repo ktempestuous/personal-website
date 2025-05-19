@@ -93,11 +93,11 @@
 										<h2>Statistical methods</h2>
 									</header>
 
-									<p> Statistical inference is used to estimate the sampling error in ensemble forecasts of various sizes, from 2 members to 100,000. 
+									<p> <b>Statistical inference</b> is used to estimate the sampling error in ensemble forecasts of various sizes, from 2 members to 100,000. 
 								        Each ensemble member is treated as a finite sample drawn from an unknown underlying distribution, and the sample statistics from the ensemble (e.g. mean) are random variables that estimate true population parameters (like the expectation, μ). 
 									The uncertainty of these variable is then the spread of their respective distributions.<br>
 
-									Since the true distribution is unknown, nonparametric bootstrapping with replacement is used to estimate the underlying distribution of the variables. This involves resampling with replacement from the ensemble data to generate many "bootstrapped" datasets. 
+									Since the true distribution is unknown, <b>nonparametric bootstrapping with replacement</b> is used to estimate the underlying distribution of the variables. This involves resampling with replacement from the ensemble data to generate many "bootstrapped" datasets. 
 									Each resample yields a statistic (e.g., a mean), and the distribution of these bootstrap statistics approximates the uncertainty in the estimate. This is known as the bootstrap principle.<br>
 
 									In this study:
@@ -112,7 +112,16 @@
 												<li>95% confidence intervals of the bootstrap distribution are constructed using the <a href="#percentile">percentile</a> method to measure uncertainty for the mean, variance and various percentiles.</li>
 												<li>Confidence intervals versus ensemble size are plotted on a log-log plot.</li>
 											</ol>
-											
+
+									<p>The distribution of forecast variables is also of interest as it can indicate how realistic the forecast model is, and gives insights to other statistics. We use the following statistics to quantify the distribution shape: </p>
+									<div class="row">
+										<div class="col-12">
+											<ul>
+												<li>Sample skewness: A measure of the asymmetry of the distribution of sample data around the mean.</li>
+  											        <li>Sample excess kurtosis: A measure of the "tailedness" of the sample distribution compared to a normal distribution.</li>
+    												<li>Kullback-Leibler (KL) Divergence: A measure of how one probability distribution differs from a reference (expected) distribution.</li>
+
+											</ul>
 
 
 								        <h3>Definition</h3>
