@@ -131,10 +131,10 @@
 
 									<figure style="float: left; margin: 0 1em 1em 0; max-width: 50%;">
   										<img src="images/Fig8.pdf" alt="..." style="width: 100%;" />
-  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 3: Asymptotic convergence of variance sampling error for (a) wind, (b) height and (c) rain model variables. </figcaption>
+  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 3: Coloured lines = 95% variance sampling error as function of ensemble size for (a) wind, (b) height and (c) rain model variables. Grey lines = fitted lines proportional to n<sup>-1/2</sup> </figcaption>
 									</figure>
 
-									<p> An asymptotic convergence in the limit of large ensemble size (n) was seen in all variables tested (mean, variance, standard deviation, skew, kurtosis and various quantiles). 
+									<p> An <a href="#Ass">asymptotic</a>asymptotic convergence in the limit of large ensemble size (n) was seen in the log-log plots of the 95% confidence intervals for all variables tested (mean, variance, standard deviation, skew, kurtosis and various quantiles). 
 									Seen here in Figure 3 where we see the sampling error of the variance decrease proportional to n<sup>-1/2</sup> after an ensemble size between 50-100 is reached. <br>
 									This behaviour is expected from the <a href="#CLT">Central Limit Theorem</a>, which further predicts that the magnitude of the uncertainty depends on the distribution shape, with a large uncertainty for statistics 
 									that depend on rare events. This prediction was also confirmed, with the additional observation that such statistics also required larger ensemble sizes before entering the asymptotic regime. 
@@ -152,10 +152,16 @@
 										<dd>
 											<p>A 95% confidence interval using the percentile method is constructed by taking many resampled versions of a dataset (e.g. via bootstrapping), calculating the statistic of interest for each, and then selecting the values at the 2.5th and 97.5th percentiles of the resulting distribution. These percentiles form the lower and upper bounds of the interval, meaning there's a 95% chance the true value lies within them, based on the resampled data.</p>
 										</dd>
+										<dt id="Ass">Asymptotic regime</dt>
+										<dd>
+											<p>The asymptotic regime refers to the behavior of a statistical method or mathematical function as the sample size or some parameter approaches infinity. In this regime, approximations (like normality of the sample mean or convergence of estimators) become increasingly accurate. It’s often used to describe the long-run properties or limiting behavior of estimators and models.</p>
+										</dd>
 										<dt id="CLT">Central Limit Theorem</dt>
 										<dd>
 											<p>States that regardless of the original distribution of a population, the distribution of the sample mean will approach a normal distribution as the sample size becomes large, provided the samples are independent and identically distributed.</p>
 										</dd>
+
+										
 									</dl>
 
 
