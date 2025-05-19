@@ -69,7 +69,7 @@
 									<hr />
 
 									<header>
-                                                                        	<h2>Model and Statistical Methods</h2>
+                                                                        	<h2>Model</h2>
 									</header>
 
 									<figure style="float: left; margin: 0 1em 1em 0; max-width: 50%;">
@@ -85,6 +85,34 @@
 									<p>The model realistically reproduces convective lifecycles, cloud distributions, and spatial randomness, as seen here, whereby clouds (dark green) are created in the 100km wide domain as well as dissipate after a few hours. </p>
 
  									<hr />
+
+									<header> 
+										<h2>Statistical methods</h2>
+									</header>
+
+									<p> Statistical inference is used to estimate the sampling error in ensemble forecasts of various sizes, from 2 members to 100,000. 
+								        Each ensemble member is treated as a finite sample drawn from an unknown underlying distribution, and the sample statistics from the ensemble (e.g. mean) are random variables that estimate true population parameters (like the expectation, μ). 
+									The uncertainty of these variable is then the spread of their respective distributions.
+
+									Since the true distribution is unknown, nonparametric bootstrapping with replacement is used to estimate the underlying distribution of the variables. This involves resampling with replacement from the ensemble data to generate many "bootstrapped" datasets. 
+									Each resample yields a statistic (e.g., a mean), and the distribution of these bootstrap statistics approximates the uncertainty in the estimate. This is known as the bootstrap principle.
+
+									In this study:
+									</p>
+
+								<h2>Lists</h2>
+									<div class="row">
+										<div class="col-6 col-12-small">
+
+											<h3>Ordered</h3>
+											<ol>
+												<li>Bootstrapping with replacement is applied 10,000 times to a 100,000-member ensemble.</li>
+												<li>The effect of ensemble size on uncertainty is examined by subsampling the full ensemble.</li>
+												<li>95% confidence intervals of the bootstrap distribution are constructed using the percentile method to measure uncertainty for the mean, variance and various percentiles.</li>
+												<li>Confidence intervals versus ensemble size are plotted on a log-log plot.</li>
+											</ol>
+											
+
 
 								        <h3>Definition</h3>
 									<dl>
