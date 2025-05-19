@@ -43,15 +43,16 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h2 style="font-size: 1.4rem; font-weight: normal;">Limited computational resources means we have to be smart in using them in weather forecasts </h2>
+									<h2 style="font-size: 1.4rem; font-weight: normal;">Limited computational resources means we have to be smart in how we use them to create weather forecasts </h2>
 									<h2 style="font-size: 1.4rem; font-weight: normal;">Expanding the ensemble size increases accuracy of a probabilistic forecast but it is expensive </h2>
 							        	<h2 style="font-size: 1.4rem; font-weight: normal;">and so we have to know if it will be worth it.  </h2>
 								</header>
 
 								<!-- Text stuff -->
                                                                         <h2>Summary</h2>
-								        <p>One main way in which the accuracy of probabilistic forecasts can be improved is by increasing the ensemble size. It is unclear however how the sampling error decreases with ensemble size however. To address this, we develop
-				                                        a simple model which recreates a weather forecast model, but which is cheap to run and therefore can run up to 100,000 forecast models at once. Continye here, by saying steps taken. don;'t need to go into detail completely.  </p>
+								        <p>One main way in which the accuracy of probabilistic forecasts can be improved is by increasing the ensemble size. It is unclear however how the sampling error decreases with ensemble size however, and the larger the ensemble, the more expensive the forecast is to run. We address this question of how large an ensemble should be. We do this by developing
+				                                        a simple model which recreates a weather forecast model, but which is cheap to run and therefore can run up to 100,000 forecast models at once. From analysing the sampling error as a function of ensemble size, we find there's an asymptotic behaviour, whereby the error decreases proportion to ensemble size ^(-0.5). With this relationship in hand, operational
+									 forecast modellers can now predict how their sampling error will decrease with further investment in ensemble size, and will be able to quantitatively reason whether it will be worthwhile.   </p>
 								        <p>
                                                                                 <b>
                                                                                         <i class="fas fa-file-pdf" style="margin-right: 6px;"></i>
