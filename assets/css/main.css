@@ -87,8 +87,8 @@ input, select, textarea {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 170px; /* was 120px */
-	height: 170px; /* was 120px */
+	width: 190px; /* was 120px */
+	height: 190px; /* was 120px */
 	border-radius: 50%;
 	background: rgba(255, 255, 255, 0.1); /* 10% visible white */
 	color: #ffffff;
