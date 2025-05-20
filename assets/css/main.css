@@ -85,6 +85,7 @@ input, select, textarea {
 
 .bubble {
 	display: flex;
+	flex-direction: column;  /* Stack text and icon vertically */
 	align-items: center;
 	justify-content: center;
 	width: 190px; /* was 120px */
@@ -97,6 +98,10 @@ input, select, textarea {
 	text-align: center;
 	transition: background 0.3s, transform 0.3s;
 	line-height: 1.8; 
+}
+
+.bubble i {
+  margin-top: 0.5rem; /* adds space between text and icon */
 }
 
 .bubble:hover {
