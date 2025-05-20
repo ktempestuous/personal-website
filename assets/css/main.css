@@ -96,7 +96,7 @@ input, select, textarea {
 	font-weight: 600;
 	text-align: center;
 	transition: background 0.3s, transform 0.3s;
-	line-height: 1.1; /* standard 1.5 */
+	line-height: 1.8; 
 }
 
 .bubble:hover {
