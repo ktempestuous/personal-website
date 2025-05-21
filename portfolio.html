@@ -1,0 +1,628 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elements Reference - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/research_1_styles.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">How big should a <br> 
+							probabilistic forecast be?</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">This is Massively</a></li>
+							<li><a href="generic.html">Generic Page</a></li>
+							<li class="active"><a href="elements.html">Elements Reference</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/dr-tempest/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://scholar.google.com/citations?user=tJB6RnUAAAAJ&hl=en&oi=ao" class="icon solid fa-graduation-cap"><span class="label">Google Scholar</span></a></li>
+							<li><a href="https://github.com/ktempestuous" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h2 style="font-size: 1.4rem; font-weight: normal;">Limited computational resources means we have to be smart in how we use them to create weather forecasts </h2>
+									<h2 style="font-size: 1.4rem; font-weight: normal;">Expanding the ensemble size increases accuracy of a probabilistic forecast but it is expensive </h2>
+							        	<h2 style="font-size: 1.4rem; font-weight: normal;">and so we have to know if it will be worth it.  </h2>
+								</header>
+
+								<!-- Text stuff -->
+								        <header>
+                                                                        	<h2>Summary</h2>
+										<p>Summarised from original publication by myself, George Craig & Jonas Brehmer</p>
+									</header>
+								       	<p>One main way in which the accuracy of <a href="#probabilistic-forecast">probabilistic forecasts</a> can be improved is by increasing the ensemble size. It is unclear however how the sampling error decreases with ensemble size however, and the larger the ensemble, the more expensive the forecast is to run. We address this question of how large an ensemble should be. We do this by developing
+				                                        a simple model which recreates a weather forecast model, but which is cheap to run and therefore can run up to 100,000 forecast models at once. From analysing the sampling error as a function of ensemble size, we find there's an asymptotic behaviour, whereby the error decreases proportion to (ensemble size)<sup>-1/2</sup>. With this relationship in hand, operational
+									 forecast modellers can now predict how their sampling error will decrease with further investment in ensemble size, and will be able to quantitatively reason whether it will be worthwhile.   </p>
+								        <p>
+                                                                                <b>
+                                                                                       	<i class="fas fa-file-pdf" style="margin-right: 6px;"></i>
+                                                                                        <a href="https://rmets.onlinelibrary.wiley.com/doi/pdfdirect/10.1002/qj.4410">Paper</a>
+                                                                                        published in Quarterly Journal of the Meteorological Society <br>
+                                                                                        <i class="fas fa-chalkboard-teacher" style="margin-right: 6px;"></i>
+                                                                                        Presented orally at <a href="https://meetingorganizer.copernicus.org/EGU22/EGU22-1339.html">European Geosciences Union General Assembly 2022</a>
+                                                                                </b>
+                                                                        </p>
+
+									<hr />
+
+									<header>
+                                                                        	<h2>Model</h2>
+									</header>
+
+									<figure style="float: left; margin: 0 1em 1em 0; max-width: 50%;">
+  										<img src="images/Fig2.pdf" alt="..." style="width: 100%;" />
+  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 1: Snapshots of the 3 variables in model</figcaption>
+									</figure>
+									<p>A one-dimensional idealised model of cumulus convection, based on <a href="https://epub.ub.uni-muenchen.de/33333/1/10.1127_0941-2948_2014_0492.pdf">Würsch and Craig (2014)</a>, to simulate key processes of midlatitude atmospheric convection has been developed. The model is computationally efficient, allowing for large ensemble sizes (~10⁵), and captures the nonlinear and intermittent dynamics of convective systems. It employs modified shallow-water equations with three main variables (wind, height, and rain) which are seen in this figure,  and is incorporating simplified physics for cloud formation and decay through buoyancy thresholds and rain-induced downdrafts. </p>
+
+								        <figure style="float: right; margin: 0 1em 1em 0; max-width: 50%;">
+  										<img src="images/Fig3.pdf" alt="..." style="width: 100%;" />
+  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 2: Evolution of clouds in time over the domain</figcaption>
+									</figure>
+									<p>The model realistically reproduces convective lifecycles, cloud distributions, and spatial randomness, as seen here, whereby clouds (dark green) are created in the 100km wide domain as well as dissipate after a few hours. </p>
+
+ 									<br>
+								        <br>
+								
+									<hr />
+
+									<header> 
+										<h2>Statistical methods</h2>
+									</header>
+
+									<p> <b>Statistical inference</b> is used to estimate the sampling error in ensemble forecasts of various sizes, from 2 members to 100,000. 
+								        Each ensemble member is treated as a finite sample drawn from an unknown underlying distribution, and the sample statistics from the ensemble (e.g. mean) are random variables that estimate true population parameters (like the expectation, μ). 
+									The uncertainty of these variable is then the spread of their respective distributions.<br>
+
+									Since the true distribution is unknown, <b>nonparametric bootstrapping with replacement</b> is used to estimate the underlying distribution of the variables. This involves resampling with replacement from the ensemble data to generate many "bootstrapped" datasets. 
+									Each resample yields a statistic (e.g., a mean), and the distribution of these bootstrap statistics approximates the uncertainty in the estimate. This is known as the bootstrap principle.<br>
+
+									In this study:
+									</p>
+
+							
+									<div class="row">
+										<div class="col-12">
+											<ol>
+												<li>Bootstrapping with replacement is applied 10,000 times to a 100,000-member ensemble.</li>
+												<li>The effect of ensemble size on uncertainty is examined by <b>subsampling</b> the full ensemble.</li>
+												<li><b>95% confidence intervals</b> of the bootstrap distribution are constructed using the <a href="#percentile">percentile</a> method to measure uncertainty for the mean, variance and various percentiles.</li>
+												<li>Confidence intervals versus ensemble size are plotted on a <b>log-log plot</b>.</li>
+											</ol>
+
+									<p>The <b>distribution of forecast variables</b> is also of interest as it can indicate how realistic the forecast model is, and gives insights to other statistics. We use the following statistics to quantify the distribution shape: </p>
+									<div class="row">
+										<div class="col-12">
+											<ul>
+												<li>Sample <b>skewness</b>: A measure of the asymmetry of the distribution of sample data around the mean.</li>
+  											        <li>Sample excess <b>kurtosis</b>: A measure of the "tailedness" of the sample distribution compared to a normal distribution.</li>
+    												<li><b>Kullback-Leibler (KL) Divergence</b>: A measure of how one probability distribution differs from a reference (in this case normal) distribution.</li>
+
+											</ul>
+
+									<hr />
+
+									<header> 
+										<h2>Results</h2>
+									</header>
+
+									<figure style="float: left; margin: 0 1em 1em 0; max-width: 100%;">
+  										<img src="images/Fig8JPEG.jpg" alt="..." style="width: 100%;" />
+  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 3: Coloured lines = 95% variance sampling error as function of ensemble size for (a) wind, (b) height and (c) rain model variables. Grey lines = fitted lines proportional to n<sup>-1/2</sup> </figcaption>
+									</figure>
+
+									<p> An <a href="#Ass">asymptotic</a> convergence in the limit of large ensemble size (n) was seen in the log-log plots of the 95% confidence intervals for all variables tested (mean, variance, standard deviation, skew, kurtosis and various quantiles). 
+									Seen here in Figure 3 is the sampling error of the variance decreasing proportional to n<sup>-1/2</sup> after an ensemble size between 50-100 is reached. <br>
+									This convergence behaviour is expected from the <a href="#CLT">Central Limit Theorem</a>, which further predicts that the magnitude of the uncertainty depends on the distribution shape, with a large uncertainty for statistics 
+									that depend on rare events. This prediction was also confirmed, with the additional observation that such statistics also required larger ensemble sizes before entering the asymptotic regime. 
+									</p>
+
+									<hr />
+
+									<header> 
+										<h2>Conclusion</h2>
+									</header>
+
+									<p> This study investigated how sampling error in ensemble forecasts decreases with increasing ensemble size, using an idealised convection model to explore the convergence behavior of various statistical properties with ensemble size.
+									It was found that for all statistics tested (and assumably for all those following the CLT), the sampling error will asymptotically converge with enough ensemble members, and decrease proportional to n<sup>-1/2</sup>. This allows for the
+									effective estimation of how adding additional ensemble members to a probabilistic forecast will further reduce sampling error. As such, <i>forecasters will be able to be able to make better informed decisions when designing ensemble forecast models</i>. 
+									</p>
+									<p>This was a small introduction to our research on estimating sampling error in a probabilistic forecast. Also reported on in this paper is how to estimate sampling error if only a small ensemble is available, and invesigating the sampling error in depth for a large range of quantiles as well as for different forecast distribution shapes. </p>
+									
+
+
+								        <h3>Definition</h3>
+									<dl>
+										<dt id="probabilistic-forecast">Probabilistic forecast</dt>
+										<dd>
+											<p>A probabilistic forecast is a prediction generated by running multiple simulations of a model (each an ensemble member) in an ensemble, each with slightly different initial conditions or model parameters, to account for uncertainty and provide a range of possible outcomes. This approach helps improve the reliability and confidence of forecasts, especially in complex systems like weather or climate.</p>
+									        </dd>
+										<dt id="percentile">95% confidence interval using the percentile method</dt>
+										<dd>
+											<p>A 95% confidence interval using the percentile method is constructed by taking many resampled versions of a dataset (e.g. via bootstrapping), calculating the statistic of interest for each, and then selecting the values at the 2.5th and 97.5th percentiles of the resulting distribution. These percentiles form the lower and upper bounds of the interval, meaning there's a 95% chance the true value lies within them, based on the resampled data.</p>
+										</dd>
+										<dt id="Ass">Asymptotic regime</dt>
+										<dd>
+											<p>The asymptotic regime refers to the behavior of a statistical method or mathematical function as the sample size or some parameter approaches infinity. In this regime, approximations (like normality of the sample mean or convergence of estimators) become increasingly accurate. It’s often used to describe the long-run properties or limiting behavior of estimators and models.</p>
+										</dd>
+										<dt id="CLT">Central Limit Theorem</dt>
+										<dd>
+											<p>States that regardless of the original distribution of the population, the distribution of the sample mean approaches a normal distribution as the sample size increases, provided the samples are independent and identically distributed. In addition, the standard deviation of the sample mean (standard error) decreases with sample size, scaling proportional to n<sup>-1/2</sup>.</p>
+										</dd>
+
+										
+									</dl>
+
+
+								
+									<h2>Text</h2>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>.
+									Finally, this is a <a href="#">link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<header>
+										<h2>Heading with a Subtitle</h2>
+										<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+									</header>
+									<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+									<header>
+										<h3>Heading with a Subtitle</h3>
+										<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+									</header>
+									<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+									<header>
+										<h4>Heading with a Subtitle</h4>
+										<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+									</header>
+									<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+
+									<hr />
+
+								<!-- Lists -->
+									<h2>Lists</h2>
+									<div class="row">
+										<div class="col-6 col-12-small">
+
+											<h3>Unordered</h3>
+											<ul>
+												<li>Dolor pulvinar etiam.</li>
+												<li>Sagittis lorem eleifend.</li>
+												<li>Felis feugiat dolore viverra.</li>
+												<li>Dolor pulvinar etiam.</li>
+											</ul>
+
+											<h3>Alternate</h3>
+											<ul class="alt">
+												<li>Dolor pulvinar etiam etiam.</li>
+												<li>Sagittis adipiscing eleifend.</li>
+												<li>Felis enim dolore viverra.</li>
+												<li>Dolor pulvinar etiam etiam.</li>
+											</ul>
+
+										</div>
+										<div class="col-6 col-12-small">
+
+											<h3>Ordered</h3>
+											<ol>
+												<li>Dolor pulvinar etiam.</li>
+												<li>Etiam vel felis at viverra.</li>
+												<li>Felis enim feugiat magna.</li>
+												<li>Etiam vel felis nullam.</li>
+												<li>Felis enim et tempus.</li>
+											</ol>
+
+											<h3>Icons</h3>
+											<ul class="icons">
+												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+												<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+											</ul>
+											<ul class="icons alt">
+												<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+												<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="#" class="icon brands alt fa-github"><span class="label">Github</span></a></li>
+												<li><a href="#" class="icon brands alt fa-dribbble"><span class="label">Dribbble</span></a></li>
+											</ul>
+
+										</div>
+									</div>
+									<h3>Definition</h3>
+									<dl>
+										<dt>Item 1</dt>
+										<dd>
+											<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										</dd>
+										<dt>Item 2</dt>
+										<dd>
+											<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										</dd>
+										<dt>Item 3</dt>
+										<dd>
+											<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										</dd>
+									</dl>
+
+									<h3>Actions</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions small">
+										<li><a href="#" class="button primary small">Small</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<ul class="actions stacked">
+												<li><a href="#" class="button primary">Default</a></li>
+												<li><a href="#" class="button">Default</a></li>
+											</ul>
+										</div>
+										<div class="col-6 col-12-small">
+											<ul class="actions stacked">
+												<li><a href="#" class="button primary small">Small</a></li>
+												<li><a href="#" class="button small">Small</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<ul class="actions stacked">
+												<li><a href="#" class="button primary fit">Default</a></li>
+												<li><a href="#" class="button fit">Default</a></li>
+											</ul>
+										</div>
+										<div class="col-6 col-12-small">
+											<ul class="actions stacked">
+												<li><a href="#" class="button primary small fit">Small</a></li>
+												<li><a href="#" class="button small fit">Small</a></li>
+											</ul>
+										</div>
+									</div>
+
+									<hr />
+
+								<!-- Blockquote -->
+									<h2>Blockquote</h2>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis.</blockquote>
+
+									<hr />
+
+								<!-- Table -->
+									<h2>Table</h2>
+
+									<h3>Default</h3>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item 1</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item 2</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item 3</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item 4</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item 5</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h3>Alternate</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item 1</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item 2</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item 3</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item 4</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item 5</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<hr />
+
+								<!-- Buttons -->
+									<h2>Buttons</h2>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary large">Large</a></li>
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions fit">
+										<li><a href="#" class="button primary fit">Fit</a></li>
+										<li><a href="#" class="button fit">Fit</a></li>
+									</ul>
+									<ul class="actions fit small">
+										<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+										<li><a href="#" class="button fit small">Fit + Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-search">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Primary</span></li>
+										<li><span class="button disabled">Default</span></li>
+									</ul>
+
+									<hr />
+
+								<!-- Form -->
+									<h2>Form</h2>
+
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall">
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+											</div>
+											<!-- Break -->
+											<div class="col-12">
+												<select name="demo-category" id="demo-category">
+													<option value="">- Category -</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<!-- Break -->
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-normal" name="demo-priority">
+												<label for="demo-priority-normal">Normal</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<!-- Break -->
+											<div class="col-6 col-12-small">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="col-6 col-12-small">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">I am a human</label>
+											</div>
+											<!-- Break -->
+											<div class="col-12">
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+											<!-- Break -->
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="Send Message" class="primary" /></li>
+													<li><input type="reset" value="Reset" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+
+									<hr />
+
+								<!-- Image -->
+									<h2>Image</h2>
+
+									<h3>Fit</h3>
+									<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+											<!-- Break -->
+											<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+											<!-- Break -->
+											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+										</div>
+									</div>
+
+									<h3>Left &amp; Right</h3>
+									<p><span class="image left"><img src="images/pic08.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
+									<p><span class="image right"><img src="images/pic09.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
+
+									<hr />
+
+								<!-- Box -->
+									<h2>Box</h2>
+									<div class="box">
+										<p>Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus lorem ipsum dolor sit amet nullam. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis volutpat lorem ipsum dolor.</p>
+									</div>
+
+									<hr />
+
+								<!-- Preformatted Code -->
+									<h2>Preformatted</h2>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';
+</code></pre>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>1234 Somewhere Road #87257<br />
+								Nashville, TN 00000-0000</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(000) 000-0000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">info@untitled.tld</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
