@@ -19,16 +19,15 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">How big should a <br> 
-							probabilistic forecast be?</a>
+						<a href="index.html" class="logo">Portfolio</a>			
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="index.html">This is Massively</a></li>
-							<li><a href="generic.html">Generic Page</a></li>
-							<li class="active"><a href="elements.html">Elements Reference</a></li>
+							<li><a href="index.html">About Me</a></li>
+							<li><a href="generic.html">Portfolio</a></li>
+							<li class="active"><a href="elements.html">Contact Me</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/dr-tempest/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
@@ -38,6 +37,81 @@
 					</nav>
 
 				<!-- Main -->
+
+					<section class="post" id="projects">
+    						<header class="major">
+        						<h2>Projects</h2>
+    						</header>
+
+   					 <!-- Filter Dropdown -->
+    						<div>
+        						<label for="skill-filter"><strong>Filter by skill:</strong></label>
+        						<select id="skill-filter" onchange="filterProjects()">
+            							<option value="all">All</option>
+            							<option value="python">Python</option>
+            							<option value="tableau">Tableau</option>
+            							<option value="machine-learning">Machine Learning</option>
+            							<option value="data-visualization">Data Visualization</option>
+           							<!-- Add more options as needed -->
+        						</select>
+    						</div>
+
+    						<!-- Project Entry Example -->
+    						<div class="project-entry" data-skills="python machine-learning">
+        						<div class="row aln-middle">
+            							<div class="col-8 col-12-small">
+                							<h3>Forecast Model Optimisation</h3>
+                							<p>Developed a probabilistic model to determine optimal ensemble size in weather forecasting using computationally efficient simulation methods.</p>
+                							<ul class="skills-list">
+                    								<li>Python</li>
+                    								<li>Machine Learning</li>
+                    								<li>Simulation</li>
+                							</ul>
+            							</div>
+            							<div class="col-4 col-12-small">
+                							<img src="images/project1.jpg" alt="Forecast Model" style="width:100%; border-radius: 6px;">
+            							</div>
+        						</div>
+    						</div>
+
+    						<!-- Add more .project-entry divs as needed -->
+
+					</section>
+
+					<script>
+    						function filterProjects() {
+        						const selected = document.getElementById('skill-filter').value;
+        						const projects = document.querySelectorAll('.project-entry');
+
+        						projects.forEach(project => {
+            							const skills = project.dataset.skills.split(' ');
+            							if (selected === 'all' || skills.includes(selected)) {
+            							    project.style.display = 'block';
+            							} else {
+            							    project.style.display = 'none';
+            							}
+        						});
+    						}
+					</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
 					<div id="main">
 
 						<!-- Post -->
