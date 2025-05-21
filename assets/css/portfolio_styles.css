@@ -72,6 +72,23 @@ input, select, textarea {
 	appearance: none;
 }
 
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skills-list li {
+    background-color: #eeeeee;
+    color: #333;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+
 /* Basic */
 
 	@-ms-viewport {
