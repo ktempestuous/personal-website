@@ -3252,7 +3252,7 @@ input, select, textarea {
 			height: 100%;
 			background-color: #006400;
 			background-image: url("../../images/DSC07054-5.jpg"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpg");
-			background-size: auto,								auto,				100% auto;
+			background-size: 100% auto,								auto,				100% auto;
 			background-position: center,								center,		top center;
 			background-repeat: repeat,								no-repeat,	no-repeat;
 			background-attachment: fixed,								scroll,			scroll;
