@@ -55,16 +55,33 @@
   										<figcaption style="font-size: 0.9em; text-align: center;">My team with our prizes, the Meta Quest 3s </figcaption>
 									</figure>
 	
-								        <p> Last week, I took part in my very first hackathon — the Bosch Agentic AI Hackathon in Berlin — and what an incredible two days it turned out to be. Not only did I have the chance to immerse myself in the rapidly evolving space of Agentic AI, but my team also ended up taking first place! 🥇
+								        <p> Last week, I took part in my very first hackathon - the Bosch Agentic AI Hackathon in Berlin - and what an incredible two days it turned out to be. Not only did I have the chance to immerse myself in the rapidly evolving space of Agentic AI, but my team (composed of myself, Daniel Glatter, Karolina Kur & Andreas Spannagel) also ended up taking first place! 🥇
 									We built an autonomous agent that tackles a very real industry pain point: optimizing PCBA (Printed Circuit Board Assembly) Bill of Materials (BOM) files. Think of it as an AI co-pilot for hardware procurement.</p>
 								
 								        <header>
-                                                                        	<h2>Summary</h2>
-										<p>Summarised from original publication by myself, George Craig & Jonas Brehmer</p>
+                                                                        	<h2>What We Built: The PCBA BOM Agent</h2>
 									</header>
-								       	<p>One main way in which the accuracy of <a href="#probabilistic-forecast">probabilistic forecasts</a> can be improved is by increasing the ensemble size. It is unclear however how the sampling error decreases with ensemble size however, and the larger the ensemble, the more expensive the forecast is to run. We address this question of how large an ensemble should be. We do this by developing
-				                                        a simple model which recreates a weather forecast model, but which is cheap to run and therefore can run up to 100,000 forecast models at once. From analysing the sampling error as a function of ensemble size, we find there's an asymptotic behaviour, whereby the error decreases proportion to (ensemble size)<sup>-1/2</sup>. With this relationship in hand, operational
-									 forecast modellers can now predict how their sampling error will decrease with further investment in ensemble size, and will be able to quantitatively reason whether it will be worthwhile.   </p>
+								       	<p>
+									Our project aimed to solve a common problem in electronics manufacturing — how to analyze and optimize a BOM file quickly and intelligently. BOM files often contain dozens or hundreds of components, and finding cost-effective alternatives can be time-consuming and error-prone.
+									We built a multi-agent system that does the heavy lifting automatically. Here's how it works:
+
+									<div class="row">
+										<div class="col-12">
+											<ol>
+												<li><b>Input Processing Agent</b>: It reads the BOM CSV file, extracts relevant fields (like MPN, description, manufacturer, quantity), and identifies which columns are usable or malformed.</li>
+												<li><b>Part Analysis Agent</b>: For each component, it queries the Octopart API to fetch real-time pricing, availability, and specs. It also looks for drop-in replacements — parts with matching specs that might offer better pricing or lead times.</li>
+												<li><b>Optimization Agent</b>: This agent evaluates potential substitutes, considering criteria like cost savings, number of suppliers, and stock levels. It ranks these alternatives and flags components that could benefit from a swap.</li>
+												<li><b>Report Generation Agent</b>: Finally, a dedicated agent compiles all findings into a clean, human-readable report. This includes side-by-side comparisons, summaries of cost savings, and flagged issues.</li>
+											</ol>
+									The full agent workflow is available here: GitHub: PCBS BOM AI Agent </p>
+
+										
+										
+
+
+
+
+
 								        <p>
                                                                                 <b>
                                                                                        	<i class="fas fa-file-pdf" style="margin-right: 6px;"></i>
