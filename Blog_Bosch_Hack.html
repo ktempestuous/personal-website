@@ -60,22 +60,22 @@
 									</figure>
 	
 								        <p> Last week, I took part in my very first hackathon - the Bosch Agentic AI Hackathon in Berlin - and what an incredible two days it turned out to be. Not only did I have the chance to immerse myself in the rapidly evolving space of Agentic AI, but my team (composed of myself, Daniel Glatter, Karolina Kur & Andreas Spannagel) also ended up taking first place! 🥇
-									We built an autonomous agent that tackles a very real industry pain point: optimizing PCBA (Printed Circuit Board Assembly) Bill of Materials (BOM) files. Think of it as an AI co-pilot for hardware procurement.</p>
+									We built an autonomous agent that tackles a very real industry pain point: optimising PCBA (Printed Circuit Board Assembly) Bill of Materials (BOM) files. Think of it as an AI co-pilot for hardware procurement.</p>
 								
 								        <header>
                                                                         	<h2>What We Built: The PCBA BOM Agent</h2>
 									</header>
 								       	<p>
-									Our project aimed to solve a common problem in electronics manufacturing — how to analyze and optimize a BOM file quickly and intelligently. BOM files often contain dozens or hundreds of components, and finding cost-effective alternatives can be time-consuming and error-prone.
+									Our project aimed to solve a common problem in electronics manufacturing - how to analyse and optimise a BOM file quickly and intelligently. BOM files often contain dozens or hundreds of components which need to be procured, and finding the most cost-effective ones on the market can be time-consuming and error-prone.
 									We built a multi-agent system that does the heavy lifting automatically. Here's how it works:</p>
 
 									<div class="row">
 										<div class="col-12">
 											<ol>
-												<li><b>Input Processing Agent</b>: It reads the BOM CSV file, extracts relevant fields (like MPN, description, manufacturer, quantity), and identifies which columns are usable or malformed.</li>
-												<li><b>Part Analysis Agent</b>: For each component, it queries the Octopart API to fetch real-time pricing, availability, and specs. It also looks for drop-in replacements — parts with matching specs that might offer better pricing or lead times.</li>
-												<li><b>Optimisation Agent</b>: This agent evaluates potential substitutes, considering criteria like cost savings, number of suppliers, and stock levels. It ranks these alternatives and flags components that could benefit from a swap.</li>
-												<li><b>Report Generation Agent</b>: Finally, a dedicated agent compiles all findings into a clean, human-readable report. This includes side-by-side comparisons, summaries of cost savings, and flagged issues.</li>
+												<li><b>Input Processing</b>: When a user uploads a BOM file, the agent initiates a conversation to gather critical project assumptions (industry, order quantity etc.).</li>
+												<li><b>Part Analysis</b>: It then parses the BOM using a Python tool to: identify key columns via an LLM, structure each row with LLM help and query Octopart for data on original parts and alternatives.</li>
+												<li><b>Alternative Evaluation</b>: For each part with alternatives, the agent checks if substitutions are suitable using LLM-based reasoning.</li>
+												<li><b>Report Generation</b>: The agent generates a markdown report summarising recommendations, justifications, and potential cost savings.</li>
 											</ol>
 
 										</div>
