@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elements Reference - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/research_1_styles.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a class="logo">How big should a <br> 
+							probabilistic forecast be?</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">About Me</a></li>
+							<li><a href="portfolio.html">Portfolio</a></li>
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="contact.html">Contact Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/dr-tempest/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://scholar.google.com/citations?user=tJB6RnUAAAAJ&hl=en&oi=ao" class="icon solid fa-graduation-cap"><span class="label">Google Scholar</span></a></li>
+							<li><a href="https://github.com/ktempestuous" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+			
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h2 style="font-size: 1.4rem; font-weight: normal;">Limited computational resources means we have to be smart in how we use them to create weather forecasts </h2>
+									<h2 style="font-size: 1.4rem; font-weight: normal;">Expanding the ensemble size increases accuracy of a probabilistic forecast but it is expensive </h2>
+							        	<h2 style="font-size: 1.4rem; font-weight: normal;">and so we have to know if it will be worth it.  </h2>
+								</header>
+
+								<!-- Text stuff -->
+								        <header>
+                                                                        	<h2>Summary</h2>
+										<p>Summarised from original publication by myself, George Craig & Jonas Brehmer</p>
+									</header>
+								       	<p>One main way in which the accuracy of <a href="#probabilistic-forecast">probabilistic forecasts</a> can be improved is by increasing the ensemble size. It is unclear however how the sampling error decreases with ensemble size however, and the larger the ensemble, the more expensive the forecast is to run. We address this question of how large an ensemble should be. We do this by developing
+				                                        a simple model which recreates a weather forecast model, but which is cheap to run and therefore can run up to 100,000 forecast models at once. From analysing the sampling error as a function of ensemble size, we find there's an asymptotic behaviour, whereby the error decreases proportion to (ensemble size)<sup>-1/2</sup>. With this relationship in hand, operational
+									 forecast modellers can now predict how their sampling error will decrease with further investment in ensemble size, and will be able to quantitatively reason whether it will be worthwhile.   </p>
+								        <p>
+                                                                                <b>
+                                                                                       	<i class="fas fa-file-pdf" style="margin-right: 6px;"></i>
+                                                                                        <a href="https://rmets.onlinelibrary.wiley.com/doi/pdfdirect/10.1002/qj.4410">Paper</a>
+                                                                                        published in Quarterly Journal of the Meteorological Society <br>
+                                                                                        <i class="fas fa-chalkboard-teacher" style="margin-right: 6px;"></i>
+                                                                                        Presented orally at <a href="https://meetingorganizer.copernicus.org/EGU22/EGU22-1339.html">European Geosciences Union General Assembly 2022</a>
+                                                                                </b>
+                                                                        </p>
+
+									<hr />
+
+									<header>
+                                                                        	<h2>Model</h2>
+									</header>
+
+									<figure style="float: left; margin: 0 1em 1em 0; max-width: 50%;">
+  										<img src="images/Fig2.pdf" alt="..." style="width: 100%;" />
+  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 1: Snapshots of the 3 variables in model</figcaption>
+									</figure>
+									<p>A one-dimensional idealised model of cumulus convection, based on <a href="https://epub.ub.uni-muenchen.de/33333/1/10.1127_0941-2948_2014_0492.pdf">Würsch and Craig (2014)</a>, to simulate key processes of midlatitude atmospheric convection has been developed. The model is computationally efficient, allowing for large ensemble sizes (~10⁵), and captures the nonlinear and intermittent dynamics of convective systems. It employs modified shallow-water equations with three main variables (wind, height, and rain) which are seen in this figure,  and is incorporating simplified physics for cloud formation and decay through buoyancy thresholds and rain-induced downdrafts. </p>
+
+								        <figure style="float: right; margin: 0 1em 1em 0; max-width: 50%;">
+  										<img src="images/Fig3.pdf" alt="..." style="width: 100%;" />
+  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 2: Evolution of clouds in time over the domain</figcaption>
+									</figure>
+									<p>The model realistically reproduces convective lifecycles, cloud distributions, and spatial randomness, as seen here, whereby clouds (dark green) are created in the 100km wide domain as well as dissipate after a few hours. </p>
+
+ 									<br>
+								        <br>
+								
+									<hr />
+
+									<header> 
+										<h2>Statistical methods</h2>
+									</header>
+
+									<p> <b>Statistical inference</b> is used to estimate the sampling error in ensemble forecasts of various sizes, from 2 members to 100,000. 
+								        Each ensemble member is treated as a finite sample drawn from an unknown underlying distribution, and the sample statistics from the ensemble (e.g. mean) are random variables that estimate true population parameters (like the expectation, μ). 
+									The uncertainty of these variable is then the spread of their respective distributions.<br>
+
+									Since the true distribution is unknown, <b>nonparametric bootstrapping with replacement</b> is used to estimate the underlying distribution of the variables. This involves resampling with replacement from the ensemble data to generate many "bootstrapped" datasets. 
+									Each resample yields a statistic (e.g., a mean), and the distribution of these bootstrap statistics approximates the uncertainty in the estimate. This is known as the bootstrap principle.<br>
+
+									In this study:
+									</p>
+
+							
+									<div class="row">
+										<div class="col-12">
+											<ol>
+												<li>Bootstrapping with replacement is applied 10,000 times to a 100,000-member ensemble.</li>
+												<li>The effect of ensemble size on uncertainty is examined by <b>subsampling</b> the full ensemble.</li>
+												<li><b>95% confidence intervals</b> of the bootstrap distribution are constructed using the <a href="#percentile">percentile</a> method to measure uncertainty for the mean, variance and various percentiles.</li>
+												<li>Confidence intervals versus ensemble size are plotted on a <b>log-log plot</b>.</li>
+											</ol>
+
+									<p>The <b>distribution of forecast variables</b> is also of interest as it can indicate how realistic the forecast model is, and gives insights to other statistics. We use the following statistics to quantify the distribution shape: </p>
+									<div class="row">
+										<div class="col-12">
+											<ul>
+												<li>Sample <b>skewness</b>: A measure of the asymmetry of the distribution of sample data around the mean.</li>
+  											        <li>Sample excess <b>kurtosis</b>: A measure of the "tailedness" of the sample distribution compared to a normal distribution.</li>
+    												<li><b>Kullback-Leibler (KL) Divergence</b>: A measure of how one probability distribution differs from a reference (in this case normal) distribution.</li>
+
+											</ul>
+
+									<hr />
+
+									<header> 
+										<h2>Results</h2>
+									</header>
+
+									<figure style="float: left; margin: 0 1em 1em 0; max-width: 100%;">
+  										<img src="images/Fig8JPEG.jpg" alt="..." style="width: 100%;" />
+  										<figcaption style="font-size: 0.9em; text-align: center;">Figure 3: Coloured lines = 95% variance sampling error as function of ensemble size for (a) wind, (b) height and (c) rain model variables. Grey lines = fitted lines proportional to n<sup>-1/2</sup> </figcaption>
+									</figure>
+
+									<p> An <a href="#Ass">asymptotic</a> convergence in the limit of large ensemble size (n) was seen in the log-log plots of the 95% confidence intervals for all variables tested (mean, variance, standard deviation, skew, kurtosis and various quantiles). 
+									Seen here in Figure 3 is the sampling error of the variance decreasing proportional to n<sup>-1/2</sup> after an ensemble size between 50-100 is reached. <br>
+									This convergence behaviour is expected from the <a href="#CLT">Central Limit Theorem</a>, which further predicts that the magnitude of the uncertainty depends on the distribution shape, with a large uncertainty for statistics 
+									that depend on rare events. This prediction was also confirmed, with the additional observation that such statistics also required larger ensemble sizes before entering the asymptotic regime. 
+									</p>
+
+									<hr />
+
+									<header> 
+										<h2>Conclusion</h2>
+									</header>
+
+									<p> This study investigated how sampling error in ensemble forecasts decreases with increasing ensemble size, using an idealised convection model to explore the convergence behavior of various statistical properties with ensemble size.
+									It was found that for all statistics tested (and assumably for all those following the CLT), the sampling error will asymptotically converge with enough ensemble members, and decrease proportional to n<sup>-1/2</sup>. This allows for the
+									effective estimation of how adding additional ensemble members to a probabilistic forecast will further reduce sampling error. As such, <i>forecasters will be able to be able to make better informed decisions when designing ensemble forecast models</i>. 
+									</p>
+									<p>This was a small introduction to our research on estimating sampling error in a probabilistic forecast. Also reported on in this paper is how to estimate sampling error if only a small ensemble is available, and invesigating the sampling error in depth for a large range of quantiles as well as for different forecast distribution shapes. </p>
+									
+
+
+								        <h3>Definition</h3>
+									<dl>
+										<dt id="probabilistic-forecast">Probabilistic forecast</dt>
+										<dd>
+											<p>A probabilistic forecast is a prediction generated by running multiple simulations of a model (each an ensemble member) in an ensemble, each with slightly different initial conditions or model parameters, to account for uncertainty and provide a range of possible outcomes. This approach helps improve the reliability and confidence of forecasts, especially in complex systems like weather or climate.</p>
+									        </dd>
+										<dt id="percentile">95% confidence interval using the percentile method</dt>
+										<dd>
+											<p>A 95% confidence interval using the percentile method is constructed by taking many resampled versions of a dataset (e.g. via bootstrapping), calculating the statistic of interest for each, and then selecting the values at the 2.5th and 97.5th percentiles of the resulting distribution. These percentiles form the lower and upper bounds of the interval, meaning there's a 95% chance the true value lies within them, based on the resampled data.</p>
+										</dd>
+										<dt id="Ass">Asymptotic regime</dt>
+										<dd>
+											<p>The asymptotic regime refers to the behavior of a statistical method or mathematical function as the sample size or some parameter approaches infinity. In this regime, approximations (like normality of the sample mean or convergence of estimators) become increasingly accurate. It’s often used to describe the long-run properties or limiting behavior of estimators and models.</p>
+										</dd>
+										<dt id="CLT">Central Limit Theorem</dt>
+										<dd>
+											<p>States that regardless of the original distribution of the population, the distribution of the sample mean approaches a normal distribution as the sample size increases, provided the samples are independent and identically distributed. In addition, the standard deviation of the sample mean (standard error) decreases with sample size, scaling proportional to n<sup>-1/2</sup>.</p>
+										</dd>
+
+										
+									</dl>
+					</div>
+			</div>
+								
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			<!-- </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
